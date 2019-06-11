@@ -25,4 +25,8 @@ You (or your pair) will need:
    * Board: **Espressif ESP32 Dev Module**  
    * Framework: **Arduino**
 5. Once you have completed the steps, delete the `main.cpp` project code and replace it with the code from our [Hello World](hello-world.cpp) example.
-6. Upload the code. You should see a blue LED blinking on the ESP32 module. 
+6. Upload the code. You should see a blue LED blinking on the ESP32 module.
+
+## Projects
+
+* [Motion Sensor](motion-sensor.md)
