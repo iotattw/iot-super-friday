@@ -27,6 +27,12 @@ You (or your pair) will need:
 5. Once you have completed the steps, delete the `main.cpp` project code and replace it with the code from our [Hello World](hello-world.cpp) example.
 6. Upload the code. You should see a blue LED blinking on the ESP32 module.
 
+## Tips
+
+* To use Arduino pins in your code, use `pinMode(...)` to register them as inputs or outputs. See the [pinMode docs](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/).
+* WiFi functionality is available right out of the box. See the [WiFi docs](https://www.arduino.cc/en/Reference/WiFi)
+* Platform.IO libraries can be used immediately after being installed globally or locally, just `#include` the header (for example, `#include "PubSubClient.h"`)
+
 ## Projects
 
 * [Motion Sensor](motion-sensor.md)
