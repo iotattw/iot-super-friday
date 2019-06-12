@@ -19,13 +19,14 @@ With the ESP32 module disconnected from your laptop:
 
 1. Connect a wire between the `gnd` terminal of the ESP32 module and the `gnd` terminal of the motion sensor.
 2. Connect a wire between the `vcc`/`5v` terminal of the ESP32 module to the `vcc`/`5v` terminal of the motion sensor.
-3. Connect a wire between the `gpio2` terminal of the ESP32 module to the `data` terminal of the motion sensor.
+3. Connect a wire between the `d4` terminal of the ESP32 module to the `out` terminal of the motion sensor.
 
 ## Software steps
 
 After connecting the ESP32 module to your laptop:
 
-1. Start with the [hello-world](hello-world.cpp) example code as a template
+1. Set up a new Platform․IO project as described in the [README](README.md#getting-started)
 2. Set up the `gpio2` pin as an "in" pin. Put the motion sensor inside an enclosed container. Use the serial monitor to view the state of the pin when you move your hand in front of the motion sensor.
-3. Install an MQTT pub/sub library. Test it out by sending messages to the "hello-world" topic at `mqtt.svr.ip.addr`.
-4. Work out how you'll use the `setup` and `loop` methods to detect motion and send messages for "motion detected" and "all clear" events.
+3. Use the PIO Home "Libraries" tab to search for and download the [PubSubClient](https://pubsubclient.knolleary.net) library. Have a look at the "mqtt_esp8266" example on the "Examples" tab.
+4. Include the library in your source code (`#include "PubSubClient.h"`) and test it out by sending messages to the "hello-world" topic a at `mqtt.svr.ip.addr`.
+5. Work out how you'll use the `setup` and `loop` methods to detect motion and send messages for "motion detected" and "all clear" events.
