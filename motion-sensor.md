@@ -18,8 +18,8 @@ You should have something like this:
 With the ESP32 module disconnected from your laptop:
 
 1. Connect a wire between the `gnd` pin of the ESP32 module and the `gnd` pin of the motion sensor.
-2. Connect a wire between the `vcc`/`5v` pin of the ESP32 module and the `vcc`/`5v` pin of the motion sensor.
-3. Connect a wire between the `d4` pin of the ESP32 module and the `out` pin of the motion sensor.
+2. Connect a wire between the `vin` pin of the ESP32 module and the `vcc`/`5v` pin of the motion sensor.
+3. Connect a wire between the `d13` pin of the ESP32 module and the `out` pin of the motion sensor.
 
 ## Software steps
 
