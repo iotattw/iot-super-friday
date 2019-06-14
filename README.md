@@ -30,8 +30,9 @@ You (or your pair) will need:
 ## Tips
 
 * To use Arduino pins in your code, use `pinMode(...)` to register them as inputs or outputs. See the [pinMode docs](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/).
-* WiFi functionality is available right out of the box. See the [WiFi docs](https://www.arduino.cc/en/Reference/WiFi)
-* Platform.IO libraries can be used immediately after being installed globally or locally, just `#include` the header (for example, `#include "PubSubClient.h"`)
+* Use the `WiFi` library to connect to WiFi networks and transfer data with other servers. See the [WiFi docs](https://www.arduino.cc/en/Reference/WiFi).
+* Use the `Serial` library to send and receive text data from the serial monitor running in your IDE. This is helpful for debugging. See the [Serial docs](https://www.arduino.cc/reference/en/language/functions/communication/serial/).
+* Platform․IO libraries can be used immediately after being installed globally or locally, just `#include` the header (for example, `#include "PubSubClient.h"`)
 
 ## Projects
 
