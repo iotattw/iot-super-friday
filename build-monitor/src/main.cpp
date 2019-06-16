@@ -11,18 +11,19 @@
 // const char *WIFI_PASS;
 
 #define NEOPIXEL_PIN 13
-#define NEOPIXEL_LENGTH 12 
+#define NEOPIXEL_LENGTH 12
 
 enum BuildStatus
 {
-  UNKNOWN,
-  PASSING,
-  BUILDING,
-  FAILING
+  BUILDSTATUS_UNKNOWN,
+  BUILDSTATUS_PASSING,
+  BUILDSTATUS_BUILDING,
+  BUILDSTATUS_FAILING
 };
 
 uint32_t building_colors[NEOPIXEL_LENGTH];
 WiFiClient espClient;
+Adafruit_NeoPixel pixels(NEOPIXEL_LENGTH, NEOPIXEL_PIN, NEO_GRB + NEO_KHZ800);
 
 void make_building_colors(uint32_t colors[NEOPIXEL_LENGTH])
 {
@@ -69,12 +70,13 @@ BuildStatus get_build_status()
   HTTPClient http;
   http.begin("https://circleci.com/api/v1.1/project/github/iotattw/example-build-project?limit=1&shallow=true", ROOT_CA);
   http.addHeader("Accept", "application/json");
-  int httpCode = http.GET();
-  if (httpCode != 200)
+
+  Serial.println("fetching build status");
+  if (http.GET() != 200)
   {
-    Serial.println("Error on HTTP request");
+    Serial.println("error on HTTP request");
     http.end();
-    return UNKNOWN;
+    return BUILDSTATUS_UNKNOWN;
   }
   char *payload = const_cast<char *>(http.getString().c_str());
   http.end();
@@ -89,19 +91,19 @@ BuildStatus get_build_status()
   {
     Serial.print("deserializeJson() failed: ");
     Serial.println(error.c_str());
-    return UNKNOWN;
+    return BUILDSTATUS_UNKNOWN;
   }
   JsonObject last_build = doc[0];
   const char *status = last_build["status"];
   if (strcmp(status, "success") == 0)
   {
-    return PASSING;
+    return BUILDSTATUS_PASSING;
   }
   if(strcmp(status, "failed") == 0)
   {
-    return FAILING;
+    return BUILDSTATUS_FAILING;
   }
-  return BUILDING;
+  return BUILDSTATUS_BUILDING;
 }
 
 void setup()
@@ -151,22 +153,22 @@ void show_unknown()
   }
 }
 
-BuildStatus buildStatus = UNKNOWN;
+BuildStatus buildStatus = BUILDSTATUS_UNKNOWN;
 
 void update_lights()
 {
   switch (buildStatus)
   {
-  case PASSING:
+  case BUILDSTATUS_PASSING:
     show_passing();
     break;
-  case FAILING:
+  case BUILDSTATUS_FAILING:
     show_failing();
     break;
-  case BUILDING:
+  case BUILDSTATUS_BUILDING:
     show_building();
     break;
-  case UNKNOWN:
+  case BUILDSTATUS_UNKNOWN:
   default:
     show_unknown();
     break;
