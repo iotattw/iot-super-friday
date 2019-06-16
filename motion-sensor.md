@@ -8,9 +8,6 @@ This project uses an ESP32 module connected to a motion sensor to send a "motion
 * 3x socket-to-socket wires
 * (optional) battery pack
 
-You should have something like this:  
-*(picture of Motion Sensor components laid out on a table)*
-
 ## Steps
 
 ![Motion Sensor](motion-sensor.png)

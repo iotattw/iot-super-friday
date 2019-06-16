@@ -37,3 +37,4 @@ You (or your pair) will need:
 ## Projects
 
 * [Motion Sensor](motion-sensor.md)
+* [Build Monitor](build-monitor.md)
