@@ -2,7 +2,6 @@
 #include <ArduinoJson.h>
 #include "WiFi.h"
 #include <HTTPClient.h>
-#include <TimedAction.h>
 #include "root_ca.h"
 #include "secrets.h"
 
@@ -99,7 +98,7 @@ BuildStatus get_build_status()
   {
     return BUILDSTATUS_PASSING;
   }
-  if(strcmp(status, "failed") == 0)
+  if (strcmp(status, "failed") == 0)
   {
     return BUILDSTATUS_FAILING;
   }
@@ -153,9 +152,7 @@ void show_unknown()
   }
 }
 
-BuildStatus buildStatus = BUILDSTATUS_UNKNOWN;
-
-void update_lights()
+void update_lights(BuildStatus buildStatus)
 {
   switch (buildStatus)
   {
@@ -176,15 +173,12 @@ void update_lights()
   pixels.show();
 }
 
-void update_build_state() {
-  buildStatus = get_build_status();
-}
-
-TimedAction light_updater = TimedAction(100, update_lights);
-TimedAction build_status_updater = TimedAction(5000, update_build_state);
-
 void loop()
 {
-  light_updater.check();
-  build_status_updater.check();
+  BuildStatus buildStatus = get_build_status();
+  for (int i = 0; i < 10; ++i)
+  {
+    update_lights(buildStatus);
+    delay(100);
+  }
 }
