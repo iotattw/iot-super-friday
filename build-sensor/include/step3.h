@@ -1,0 +1,48 @@
+//
+// Created by Timothy Findlay on 2019-06-17.
+//
+#include "WiFi.h"
+
+#ifndef IOT_SUPER_FRIDAY_SAMPLES_STEP3_H
+#define IOT_SUPER_FRIDAY_SAMPLES_STEP3_H
+
+class step3 {
+
+    //-----------------------
+    // WiFi Configuration
+    const char* ssid = "Popcorn";
+    const char* password = "=$ESpa3e?eDr32rUtU?eH!H4";
+
+    public:
+        void setup() {
+
+            // Configure Serial Port for monitoring
+            Serial.begin(115200);
+
+            // Configure mode of LED port
+            pinMode(LED_BUILTIN, OUTPUT);
+
+            // Start the WiFi connection
+            WiFi.begin(ssid, password);
+
+            // Check the status of Wifi before we continue
+            while (WiFi.status() != WL_CONNECTED) {
+                // 1 second delay between checking status
+                delay(1000);
+                Serial.printf("New Client. RSSi: %i dBm\n", WiFi.RSSI());
+            }
+            Serial.printf("\nIP address: %s\n", WiFi.localIP().toString().c_str());
+        }
+
+        void loop() {
+            digitalWrite(LED_BUILTIN, HIGH);
+            Serial.println("LED light is on");
+            delay(1000);
+            digitalWrite(LED_BUILTIN, LOW);
+            Serial.println("LED light is off");
+            delay(1000);
+        }
+
+};
+
+#endif //IOT_SUPER_FRIDAY_SAMPLES_STEP3_H
