@@ -25,7 +25,7 @@ You (or your pair) will need:
    * Board: **Espressif ESP32 Dev Module**  
    * Framework: **Arduino**
 5. Once you have completed the steps in the Quick Start Guide, delete the contents of the file `src/main.cpp` and replace it with the code from our [Hello World](hello-world.cpp) example.
-6. Upload the code. You should see a blue LED blinking on the ESP32 module.
+6. Build the code with the `✓` icon and upload the code with the `➡` icon (both in the footer menu bar). You should now see a blue LED blinking on the ESP32 module.
 
 ## Tips
 
