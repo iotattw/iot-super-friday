@@ -24,7 +24,7 @@ You (or your pair) will need:
 4. Follow the [Platform.IO VS Code Quick Start](https://docs.platformio.org/en/latest/ide/vscode.html#quick-start) guide. When setting up a new project, use the following info:
    * Board: **Espressif ESP32 Dev Module**  
    * Framework: **Arduino**
-5. Once you have completed the steps, delete the `main.cpp` project code and replace it with the code from our [Hello World](hello-world.cpp) example.
+5. Once you have completed the steps, delete the contents of the file `src/main.cpp` and replace it with the code from our [Hello World](hello-world.cpp) example.
 6. Upload the code. You should see a blue LED blinking on the ESP32 module.
 
 ## Tips
