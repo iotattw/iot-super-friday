@@ -1,26 +1,8 @@
-//
-// Created by Timothy Findlay on 2019-06-17.
-//
 
-
-#ifndef IOT_SUPER_FRIDAY_SAMPLES_STEP4_H
-#define IOT_SUPER_FRIDAY_SAMPLES_STEP4_H
 WiFiClient espClient;
 PubSubClient client(espClient);
 
 class step4 {
-
-    //-----------------------
-    // WiFi Configuration
-    const char* ssid = "Popcorn";
-    const char* password = "=$ESpa3e?eDr32rUtU?eH!H4";
-
-    //-----------------------
-    // MQTT Configuration
-    const char* local_hostname = "HackBot";
-    const char* mqtt_username = "mqtt_user_name";
-    const char* mqtt_passsword = "5wH5WDbHqvTK33eHAtdN";
-
 
     public:
         void setup() {
@@ -32,7 +14,7 @@ class step4 {
             pinMode(LED_BUILTIN, OUTPUT);
 
             // Start the WiFi connection
-            WiFi.begin(ssid, password);
+            WiFi.begin(WIFI_SSID, WIFI_PASS);
 
             // Check the status of Wifi before we continue
             while (WiFi.status() != WL_CONNECTED) {
@@ -63,7 +45,7 @@ class step4 {
 
     private:
 
-        void reconnect() {
+        static void reconnect() {
             // Loop until we're reconnected
             while (!client.connected()) {
                 Serial.print("Attempting MQTT connection...");
@@ -82,5 +64,3 @@ class step4 {
         }
 
 };
-
-#endif //IOT_SUPER_FRIDAY_SAMPLES_STEP4_H

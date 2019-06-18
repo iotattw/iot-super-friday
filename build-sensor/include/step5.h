@@ -1,25 +1,9 @@
-//
-// Created by Timothy Findlay on 2019-06-17.
-//
-
-#ifndef IOT_SUPER_FRIDAY_SAMPLES_STEP5_H
-#define IOT_SUPER_FRIDAY_SAMPLES_STEP5_H
+#include <ctime>
 
 class step5 {
-
-    //-----------------------
-    // WiFi Configuration
-    const char* ssid = "Popcorn";
-    const char* password = "=$ESpa3e?eDr32rUtU?eH!H4";
-
-    //-----------------------
-    // MQTT Configuration
-    const char* local_hostname = "HackBot";
-    const char* mqtt_username = "mqtt_user_name";
-    const char* mqtt_passsword = "5wH5WDbHqvTK33eHAtdN";
-
 //    WiFiClient espClient;
 //    PubSubClient client(espClient);
+    const int GPIO27 = 27;
 
     public:
         void setup() {
@@ -31,7 +15,7 @@ class step5 {
             pinMode(LED_BUILTIN, OUTPUT);
 
             // Start the WiFi connection
-            WiFi.begin(ssid, password);
+            WiFi.begin(WIFI_SSID, WIFI_PASS);
 
             // Check the status of Wifi before we continue
             while (WiFi.status() != WL_CONNECTED) {
@@ -42,7 +26,7 @@ class step5 {
             Serial.printf("\nIP address: %s\n", WiFi.localIP().toString().c_str());
 
             // Configure for MQTT
-            IPAddress mqtt_server(10, 242, 120, 242);
+            IPAddress mqtt_server(10, 1, 10, 1);
             client.setServer(mqtt_server, 1883);
             client.loop();
         }
@@ -51,6 +35,10 @@ class step5 {
 
             // After setup, connect to MQTT Broker
             reconnect();
+
+            if (digitalRead(GPIO27)) {
+                detectsMovement();
+            }
 
             digitalWrite(LED_BUILTIN, HIGH);
             Serial.println("LED light is on");
@@ -61,7 +49,7 @@ class step5 {
         }
 
     private:
-        void reconnect() {
+        static void reconnect() {
             // Loop until we're reconnected
             while (!client.connected()) {
                 Serial.print("Attempting MQTT connection...");
@@ -78,6 +66,18 @@ class step5 {
                 }
             }
         }
-};
 
-#endif //IOT_SUPER_FRIDAY_SAMPLES_STEP5_H
+        static void detectsMovement() {
+            // Prepare the payload
+            char result[28];
+            time_t now = std::time(nullptr);
+            sprintf(result, "[%ld] %s", now, "Movement detected!");
+
+            // Prepare the topic to send the payload to
+            char topic[strlen(local_hostname) + 5];
+            sprintf(topic, "/%s/log", local_hostname);
+
+            client.publish(topic, result);
+        }
+
+};

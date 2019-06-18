@@ -16,29 +16,34 @@
 		$ platformio init --ide clion --board firebeetle32
 
 ## Developing
-Step 1 - Create CPP file with loop() + setup()
-* Add to `platformio.ini`
-```
-upload_speed = 230400
-upload_port = /dev/cu.usbserial-1420
-```
 
-Step 2 - Add Serial monitoring
-* Add platformio.ini
-```
-monitor_speed = 115200
-```
-* Add to command line: `platformio device monitor`
+This project comes with 5 include files, each building on the last to progressively guide you
+through the steps of this exercise.
 
-Step 3 - Add WiFi
+You can use these examples by bringing each one into the `Main.cpp` file.
+
+* Step 1 - Make the LED blink
+* Step 2 - Add Serial monitoring
+* Step 3 - Add WiFi
+* Step 4 - Add MQTT
+* Step 5 - Add Motion Sensor
+
+See `include/README.md` for more details on each step.
+
+## Running
+
+The following platformio commands are available from the cli:
+
+Compile the code into a runable binary:
+
+    $ pio run
+
+Upload the runnable binary over the serial port to the deivce:
+
+    $ pio run --target upload
 
 
-Step 4 - Add MQTT
-* Add platformio.ini
-```
-lib_deps = 89
-```
+Monitor the serial ouput from the device:
 
-Step 5 - Add Motion Sensor
-* Add to platformio.ini
-	monitor_speed = 115200
+    $ pio device monitor
+

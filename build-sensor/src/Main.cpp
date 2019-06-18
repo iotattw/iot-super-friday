@@ -5,6 +5,7 @@
 #include <Arduino.h>
 #include "WiFi.h"
 #include <PubSubClient.h>
+#include "secrets.h"
 
 #include "step1.h"    // Step1 - Make the LED's blink
 #include "step2.h"    // Step2 - Add logging via Serial interface

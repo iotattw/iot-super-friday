@@ -1,9 +1,3 @@
-//
-// Created by Timothy Findlay on 2019-06-17.
-//
-
-#ifndef IOT_SUPER_FRIDAY_SAMPLES_STEP2_H
-#define IOT_SUPER_FRIDAY_SAMPLES_STEP2_H
 
 class step2 {
     public:
@@ -26,4 +20,3 @@ class step2 {
         }
 
 };
-#endif //IOT_SUPER_FRIDAY_SAMPLES_STEP2_H

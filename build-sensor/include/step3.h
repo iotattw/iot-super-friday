@@ -1,17 +1,4 @@
-//
-// Created by Timothy Findlay on 2019-06-17.
-//
-#include "WiFi.h"
-
-#ifndef IOT_SUPER_FRIDAY_SAMPLES_STEP3_H
-#define IOT_SUPER_FRIDAY_SAMPLES_STEP3_H
-
 class step3 {
-
-    //-----------------------
-    // WiFi Configuration
-    const char* ssid = "Popcorn";
-    const char* password = "=$ESpa3e?eDr32rUtU?eH!H4";
 
     public:
         void setup() {
@@ -23,7 +10,7 @@ class step3 {
             pinMode(LED_BUILTIN, OUTPUT);
 
             // Start the WiFi connection
-            WiFi.begin(ssid, password);
+            WiFi.begin(WIFI_SSID, WIFI_PASS);
 
             // Check the status of Wifi before we continue
             while (WiFi.status() != WL_CONNECTED) {
@@ -44,5 +31,3 @@ class step3 {
         }
 
 };
-
-#endif //IOT_SUPER_FRIDAY_SAMPLES_STEP3_H
