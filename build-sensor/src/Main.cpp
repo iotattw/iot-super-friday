@@ -16,7 +16,7 @@
 step5 iotThing;
 
 void setup() {
-    o.setup();
+    iotThing.setup();
 };
 
 void loop() {
