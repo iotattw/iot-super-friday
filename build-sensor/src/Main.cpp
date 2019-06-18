@@ -13,7 +13,7 @@
 #include "step4.h"    // Step4 - Add MQTT connection
 #include "step5.h"    // Step5 - Add Motion Sensor
 
-step5 o;
+step5 iotThing;
 
 void setup() {
     o.setup();
