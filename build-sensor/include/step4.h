@@ -25,7 +25,7 @@ class step4 {
             Serial.printf("\nIP address: %s\n", WiFi.localIP().toString().c_str());
 
             // Configure for MQTT
-            IPAddress mqtt_server(10, 242, 120, 242);
+            IPAddress mqtt_server(10, 242, 124, 242);
             client.setServer(mqtt_server, 1883);
             client.loop();
         }

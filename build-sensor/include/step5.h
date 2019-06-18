@@ -3,7 +3,7 @@
 class step5 {
 //    WiFiClient espClient;
 //    PubSubClient client(espClient);
-    const int GPIO27 = 27;
+    const int PIR_PIN = 7;
 
     public:
         void setup() {
@@ -13,6 +13,9 @@ class step5 {
 
             // Configure mode of LED port
             pinMode(LED_BUILTIN, OUTPUT);
+
+            // Configure mode of LED port
+            pinMode(PIR_PIN, INPUT);
 
             // Start the WiFi connection
             WiFi.begin(WIFI_SSID, WIFI_PASS);
@@ -26,7 +29,7 @@ class step5 {
             Serial.printf("\nIP address: %s\n", WiFi.localIP().toString().c_str());
 
             // Configure for MQTT
-            IPAddress mqtt_server(10, 1, 10, 1);
+            IPAddress mqtt_server(10, 242, 124, 242);
             client.setServer(mqtt_server, 1883);
             client.loop();
         }
@@ -36,7 +39,7 @@ class step5 {
             // After setup, connect to MQTT Broker
             reconnect();
 
-            if (digitalRead(GPIO27)) {
+            if (digitalRead(PIR_PIN)) {
                 detectsMovement();
             }
 

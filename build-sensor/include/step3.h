@@ -10,6 +10,7 @@ class step3 {
             pinMode(LED_BUILTIN, OUTPUT);
 
             // Start the WiFi connection
+            WiFi.enableSTA(true);
             WiFi.begin(WIFI_SSID, WIFI_PASS);
 
             // Check the status of Wifi before we continue
