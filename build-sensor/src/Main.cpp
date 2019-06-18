@@ -1,7 +1,3 @@
-//
-// Created by Timothy Findlay on 2019-06-17.
-//
-
 #include <Arduino.h>
 #include "WiFi.h"
 #include <PubSubClient.h>

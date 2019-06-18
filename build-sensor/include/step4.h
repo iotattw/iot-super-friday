@@ -35,10 +35,17 @@ class step4 {
             // After setup, connect to MQTT Broker
             reconnect();
 
+            // This will switch on the LED, applying 3.3v to the pin
             digitalWrite(LED_BUILTIN, HIGH);
+
+            // This will send text to the serial port (USB cable)
             Serial.println("LED light is on");
             delay(1000);
+
+            // This will switch off the LED, supplying no power to the pin
             digitalWrite(LED_BUILTIN, LOW);
+
+            // This will send text to the serial port (USB cable)
             Serial.println("LED light is off");
             delay(1000);
         }
@@ -46,8 +53,10 @@ class step4 {
     private:
 
         static void reconnect() {
+
             // Loop until we're reconnected
             while (!client.connected()) {
+
                 Serial.print("Attempting MQTT connection...");
 
                 // Attempt to connect
