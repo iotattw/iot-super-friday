@@ -20,5 +20,5 @@ void setup() {
 };
 
 void loop() {
-    o.loop();
+    iotThing.loop();
 }
