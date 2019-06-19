@@ -1,8 +1,7 @@
-IOT Super Friday
--------------------
+# Motion Sensor Steps
 This folder includes example code for the workshop.
 
-For an overview of the workshop goals see `../README.md`
+For an overview of the workshop goals see [motion-sensor](../README.md)
 
 In this folder you will find:
 

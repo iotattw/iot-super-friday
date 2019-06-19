@@ -1,19 +1,19 @@
-# PlatformIO /w Clion - Getting Started
+# Motion Sensor
 
-## Setup
+This project uses an ESP32 module connected to a motion sensor to send a "motion detected" message when it detects activity, and then an "all clear" message after a certain period of inactivity.
 
-1. Download Clion from Jetbrains: https://www.jetbrains.com/clion/download/
-2. Install PlatformIO Core: https://docs.platformio.org/en/latest/installation.html
+## Components
+* ESP32 module
+* Motion sensor
+* 3x socket-to-socket wires
 
-    or
+![Motion Sensor](motion-sensor.png)
 
-		$ pip install -U platformio
+With the ESP32 module disconnected from your laptop:
 
-3. Create project directory
-4. Install Clion plugins: `File Watchers`
-5. Setup Project defaults:
-
-		$ platformio init --ide clion --board firebeetle32
+1. Connect a wire between the `gnd` pin of the ESP32 module and the `gnd` pin of the motion sensor.
+2. Connect a wire between the `vin` pin of the ESP32 module and the `vcc`/`5v` pin of the motion sensor.
+3. Connect a wire between the `d13` pin of the ESP32 module and the `out` pin of the motion sensor.
 
 ## Developing
 

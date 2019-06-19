@@ -1,6 +1,6 @@
 # IoT Super Friday
 
-This workshop involves programming ESP32 modules to take on different responsibilities as part of a larger network. We use [Visual Studio Code](https://code.visualstudio.com/) with the [Platform.IO](https://platformio.org) plugin.
+This workshop involves programming ESP32 modules to take on different responsibilities as part of a larger network. We use  [PlatformIO](https://platformio.org) as the development environment.
 
 We assume you're using a Mac lappy with Brew installed.
 
@@ -10,31 +10,46 @@ You (or your pair) will need:
 * A laptop with a regular USB-A port (or USB-A dongle)
 * Appropriate jumper cables and hardware for your project
 
-## Getting Started
+## Getting Started with PlatformIO
 
-1. Install [CP210x drivers](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) for the ESP32 modules
-2. Install VS Code (if you don't already have it)
+Install [CP210x drivers](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) for the ESP32 modules.
+
+For the next steps, feel free to use either [Visual Studio Code](#using-platformio-with-visual-studio-code) or [CLion](#using-platformio-with-clion).
+
+### Using PlatformIO with Visual Studio Code
+
+1. Install VS Code (if you don't already have it)
     ```bash
     brew cask install visual-studio-code
     ```
-3. Install Platform․IO IDE (or search for the extension in VS Code)
+2. Install PlatformIO IDE (or search for the extension in VS Code)
     ```bash
     code --install-extension platformio.platformio-ide
     ```
-4. Follow the [Platform.IO VS Code Quick Start](https://docs.platformio.org/en/latest/ide/vscode.html#quick-start) guide. When setting up a new project, use the following info:
+3. Follow the [PlatformIO VS Code Quick Start](https://docs.platformio.org/en/latest/ide/vscode.html#quick-start) guide. When setting up a new project, use the following info:
    * Board: **Espressif ESP32 Dev Module**  
    * Framework: **Arduino**
-5. Once you have completed the steps in the Quick Start Guide, delete the contents of the file `src/main.cpp` and replace it with the code from our [Hello World](hello-world.cpp) example.
-6. Build the code with the `✓` icon and upload the code with the `➡` icon (both in the footer menu bar). You should now see a blue LED blinking on the ESP32 module.
+4. Once you have completed the steps in the Quick Start Guide, delete the contents of the file `src/main.cpp` and replace it with the code from our [Hello World](hello-world.cpp) example.
+5. Build the code with the `✓` icon and upload the code with the `➡` icon (both in the footer menu bar). You should now see a blue LED blinking on the ESP32 module.
 
-## Tips
+### Using PlatformIO with CLion
 
-* To use Arduino pins in your code, use `pinMode(...)` to register them as inputs or outputs. See the [pinMode docs](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/).
-* Use the `WiFi` library to connect to WiFi networks and transfer data with other servers. See the [WiFi docs](https://www.arduino.cc/en/Reference/WiFi).
-* Use the `Serial` library to send and receive text data from the serial monitor running in your IDE. This is helpful for debugging. See the [Serial docs](https://www.arduino.cc/reference/en/language/functions/communication/serial/).
-* Platform․IO libraries can be used immediately after being installed globally or locally, just `#include` the header (for example, `#include "PubSubClient.h"`)
+1. Download Clion from Jetbrains: https://www.jetbrains.com/clion/download/
+2. Install PlatformIO Core: https://docs.platformio.org/en/latest/installation.html
+
+    or
+
+		$ pip install -U platformio
+
+3. Create project directory
+4. Install Clion plugins: `File Watchers`
+5. Setup Project defaults:
+
+		$ platformio init --ide clion --board firebeetle32
 
 ## Projects
 
-* [Motion Sensor](motion-sensor.md)
+Once you have the ESP32 module drivers installed and PlatformIO set up and ready, you can start with one of these projects.
+
+* [Motion Sensor](motion-sensor/README.md)
 * [Build Monitor](build-monitor.md)
