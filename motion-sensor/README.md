@@ -1,6 +1,6 @@
 # Motion Sensor
 
-This project uses an ESP32 module connected to a motion sensor to send a "motion detected" message when it detects activity, and then an "all clear" message after a certain period of inactivity.
+This project uses an ESP32 module connected to a motion sensor to send a "motion detected" message when it detects activity.
 
 ## Components
 * ESP32 module
@@ -29,21 +29,4 @@ You can use these examples by bringing each one into the `Main.cpp` file.
 * Step 5 - Add Motion Sensor
 
 See `include/README.md` for more details on each step.
-
-## Running
-
-The following platformio commands are available from the cli:
-
-Compile the code into a runable binary:
-
-    $ pio run
-
-Upload the runnable binary over the serial port to the deivce:
-
-    $ pio run --target upload
-
-
-Monitor the serial ouput from the device:
-
-    $ pio device monitor
 
