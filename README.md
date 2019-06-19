@@ -67,4 +67,4 @@ For the next steps, feel free to use either [Visual Studio Code](#using-platform
 Once you have the ESP32 module drivers installed and PlatformIO set up and ready, you can start with one of these projects.
 
 * [Motion Sensor](motion-sensor/)
-* [Build Monitor](build-monitor.md)
+* [Build Monitor](build-monitor/)
