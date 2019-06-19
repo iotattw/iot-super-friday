@@ -107,7 +107,7 @@ BuildStatus get_build_status()
 
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(115200);
   delay(2000);
   setup_wifi();
   make_building_colors(building_colors);
