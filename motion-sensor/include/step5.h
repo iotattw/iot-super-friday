@@ -1,9 +1,31 @@
 #include <ctime>
 
 class step5 {
-//    WiFiClient espClient;
-//    PubSubClient client(espClient);
-    const int PIR_PIN = 7;
+    void setup_wifi()
+    {
+        WiFi.mode(WIFI_STA);
+        WiFi.disconnect();
+
+        WiFi.begin(WIFI_SSID, WIFI_PASS);
+        Serial.print("Connecting to ");
+        Serial.print(WIFI_SSID);
+
+        while (WiFi.status() != WL_CONNECTED)
+        {
+            Serial.print(".");
+            if (WiFi.status() == WL_CONNECT_FAILED)
+            {
+                Serial.println();
+                Serial.print("WiFi connection failed, re-attempting");
+            }
+            delay(500);
+        }
+        Serial.println();
+        Serial.print("Connected to ");
+        Serial.println(WIFI_SSID);
+        Serial.print("IP address is ");
+        Serial.println(WiFi.localIP());
+    }
 
     public:
         void setup() {
@@ -17,49 +39,39 @@ class step5 {
             // Configure mode of LED port
             pinMode(PIR_PIN, INPUT);
 
-            // Start the WiFi connection
-            WiFi.begin(WIFI_SSID, WIFI_PASS);
-
-            // Check the status of Wifi before we continue
-            while (WiFi.status() != WL_CONNECTED) {
-                // 1 second delay between checking status
-                delay(1000);
-                Serial.printf("New Client. RSSi: %i dBm\n", WiFi.RSSI());
-            }
-            Serial.printf("\nIP address: %s\n", WiFi.localIP().toString().c_str());
+            // Give the terminal enough time to connect
+            delay(1000);
+            setup_wifi();
 
             // Configure for MQTT
-            IPAddress mqtt_server(10, 242, 124, 242);
             client.setServer(mqtt_server, 1883);
-            client.loop();
         }
 
         void loop() {
-
-            // After setup, connect to MQTT Broker
+            // Ensure we're connected to the MQTT broker
             reconnect();
+            client.loop();
 
             if (digitalRead(PIR_PIN)) {
                 detectsMovement();
+
+                // This will switch on the LED, applying 3.3v to the pin
+                digitalWrite(LED_BUILTIN, HIGH);
+
+                // This will send text to the serial port (USB cable)
+                Serial.println("LED light is on");
+                // Delay to give the motion sensor time to go quiet
+                delay(1000);
+
+                digitalWrite(LED_BUILTIN, LOW);
+                Serial.println("LED light is off");
             }
-
-            // This will switch on the LED, applying 3.3v to the pin
-            digitalWrite(LED_BUILTIN, HIGH);
-
-            // This will send text to the serial port (USB cable)
-            Serial.println("LED light is on");
-            delay(1000);
-
-            // This will switch off the LED, supplying no power to the pin
-            digitalWrite(LED_BUILTIN, LOW);
-
-            // This will send text to the serial port (USB cable)
-            Serial.println("LED light is off");
             delay(1000);
         }
 
     private:
         static void reconnect() {
+
             // Loop until we're reconnected
             while (!client.connected()) {
                 Serial.print("Attempting MQTT connection...");

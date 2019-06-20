@@ -46,7 +46,7 @@ For the next steps, feel free to use either [Visual Studio Code](#using-platform
 4. Install Clion plugins: `File Watchers`
 5. Setup Project defaults:
     ```
-	$ platformio init --ide clion --board firebeetle32
+	$ platformio init --ide clion --board esp32dev
     ```
 6. Delete the contents of the file `src/main.cpp` and replace it with the code from our [Hello World](hello-world.cpp) example.
 7. Compile the code into a runable binary:
