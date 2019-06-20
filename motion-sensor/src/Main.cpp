@@ -4,7 +4,7 @@
 #include "secrets.h"
 
 #define LED_BUILTIN 2
-#define PIR_PIN = 13;
+#define PIR_PIN 13
 
 #include "step1.h"    // Step1 - Make the LED's blink
 #include "step2.h"    // Step2 - Add logging via Serial interface
