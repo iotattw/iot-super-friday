@@ -1,0 +1,6 @@
+{
+    "terminal.integrated.env.osx": {
+        "PATH": "/Users/derwent/.platformio/penv/bin:/Users/derwent/.platformio/penv:/Users/derwent/bin:/usr/local/opt/bzip2/bin:/usr/local/opt/gnu-tar/libexec/gnubin:/Users/derwent/.rvm/gems/ruby-2.1.9/bin:/Users/derwent/.rvm/gems/ruby-2.1.9@global/bin:/Users/derwent/.rvm/rubies/ruby-2.1.9/bin:/Users/derwent/.rbenv/shims:/usr/local/Cellar/pyenv-virtualenv/1.1.3/shims:/Users/derwent/.pyenv/shims:/Users/derwent/.pyenv/shims:/Users/derwent/.pyenv:/usr/local/sbin:/usr/local/opt/openssl/bin:/usr/local/opt/curl/bin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/coreutils/libexec/gnubin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/opt/gnu/sbin:/opt/gnu/bin:/Users/derwent/esp/xtensa-esp32-elf/bin:/opt/local/bin:/opt/local/sbin:/Users/derwent/.local/bin:/Users/derwent/.rvm/bin:/Library/TeX/texbin:/Users/derwent/go/bin",
+        "PLATFORMIO_CALLER": "vscode"
+    }
+}
