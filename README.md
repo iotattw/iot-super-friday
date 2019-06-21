@@ -32,39 +32,10 @@ For the next steps, feel free to use either [Visual Studio Code](#using-platform
 4. Once you have completed the steps in the Quick Start Guide, delete the contents of the file `src/main.cpp` and replace it with the code from our [Hello World](hello-world.cpp) example.
 5. Build the code with the `✓` icon and upload the code with the `➡` icon (both in the footer menu bar). You should now see a blue LED blinking on the ESP32 module.
 
-### Using PlatformIO with CLion
-
-1. Download Clion from Jetbrains: https://www.jetbrains.com/clion/download/
-2. Install PlatformIO Core: https://docs.platformio.org/en/latest/installation.html
-
-    or
-    ```
-	$ pip install -U platformio
-    ```
-
-3. Create project directory
-4. Install Clion plugins: `File Watchers`
-5. Setup Project defaults:
-    ```
-	$ platformio init --ide clion --board esp32dev
-    ```
-6. Delete the contents of the file `src/main.cpp` and replace it with the code from our [Hello World](hello-world.cpp) example.
-7. Compile the code into a runable binary:
-    ```
-    $ pio run
-    ```
-8. Upload the runnable binary over the serial port to the device:
-    ```
-    $ pio run --target upload
-    ```
-9. Monitor the serial ouput from the device:
-    ```
-    $ pio device monitor
-    ```
-
 ## Projects
 
 Once you have the ESP32 module drivers installed and PlatformIO set up and ready, you can start with one of these projects.
 
 * [Motion Sensor](motion-sensor/)
 * [Build Monitor](build-monitor/)
+* [Glowing Eyes](glowing-eyes/)
