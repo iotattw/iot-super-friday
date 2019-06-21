@@ -11,7 +11,7 @@ The follow up to this project is [glowing-eyes-connected](../glowing-eyes-connec
 * voltage converter
 * 2x neopixel LEDs
 
-<img src="glowing_eyes_schematic.png" />
+<img src="glowing_eyes_schematic.png"/>
 
 
 With the ESP32 module disconnected from your laptop

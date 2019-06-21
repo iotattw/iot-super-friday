@@ -39,3 +39,4 @@ Once you have the ESP32 module drivers installed and PlatformIO set up and ready
 * [Motion Sensor](motion-sensor/)
 * [Build Monitor](build-monitor/)
 * [Glowing Eyes](glowing-eyes/)
+* [Glowing Eyes Connected](glowing-eyes-connected/)
