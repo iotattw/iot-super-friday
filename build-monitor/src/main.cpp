@@ -1,24 +1,17 @@
-#include <Adafruit_NeoPixel.h>
-#include <ArduinoJson.h>
-#include "WiFi.h"
-#include <HTTPClient.h>
-#include "root_ca.h"
-#include "secrets.h"
+#include "BuildMonitorStep1.h"
+#include "BuildMonitorStep2.h"
+#include "BuildMonitorStep3.h"
+#include "BuildMonitorStep4.h"
+#include "BuildMonitorStep5.h"
 
-// #include "step1.h"    // Step1 - Make the LED's blink
-// #include "step2.h"    // Step2 - Add logging via Serial interface
-// #include "step3.h"    // Step3 - Add WiFi connection
-// #include "step4.h"    // Step4 - Add MQTT connection
-#include "BuildMonitorStep5.h" // Step5 - Add Motion Sensor
-
-BuildMonitorStep5 bulidMonitor;
+BuildMonitorStep1 buildMonitor;
 
 void setup()
 {
-  bulidMonitor.setup();
-};
+  buildMonitor.setup();
+}
 
 void loop()
 {
-  bulidMonitor.loop();
+  buildMonitor.loop();
 }

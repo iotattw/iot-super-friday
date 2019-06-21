@@ -1,5 +1,7 @@
+#ifndef ROOT_CA_H
+#define ROOT_CA_H
 // Amazon root CA, we need this for the CircleCI SSL certificate
-const char *ROOT_CA =
+const char* const ROOT_CA =
     "-----BEGIN CERTIFICATE-----\n"
     "MIIDQTCCAimgAwIBAgITBmyfz5m/jAo54vB4ikPmljZbyjANBgkqhkiG9w0BAQsF\n"
     "ADA5MQswCQYDVQQGEwJVUzEPMA0GA1UEChMGQW1hem9uMRkwFwYDVQQDExBBbWF6\n"
@@ -20,3 +22,4 @@ const char *ROOT_CA =
     "5MsI+yMRQ+hDKXJioaldXgjUkK642M4UwtBV8ob2xJNDd2ZhwLnoQdeXeGADbkpy\n"
     "rqXRfboQnoZsG4q5WTP468SQvvG5\n"
     "-----END CERTIFICATE-----\n";
+#endif

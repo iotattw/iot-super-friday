@@ -18,3 +18,30 @@ With the ESP32 module disconnected from your laptop
 ## Developing
 
 After connecting the ESP32 module to your laptop, set up a new PlatformIO project as described in the [README](../README.md#getting-started-with-platformio).
+
+Load up the `build-monitor` project into PlatformIO, the entrypoint is `main.cpp`. Follow the steps below to understand what is being added in each step.
+
+### [Step 1](src/BuildMonitorStep1.cpp)
+
+* Start a `Serial` connection (great for debugging) 
+* Start the NeoPixel strip
+  * You will need to set `NEOPIXEL_LENGTH` appropriately based on your NeoPixel array)
+* Set all of the NeoPixels to a plain white colour
+
+### [Step 2](src/BuildMonitorStep2.cpp)
+
+* Set up a WIFI connection
+  * You will need to copy `include/secrets.h.example` to `include/secrets.h` and populate it. Don't commit it anywhere!
+
+### [Step 3](src/BuildMonitorStep3.cpp)
+
+* Communicate with CircleCI to get information about a build and work out its status (building, passing, failing or unknown)
+* Write out the build status to `Serial`.
+
+### [Step 4](src/BuildMonitorStep4.cpp)
+
+* Use the build status to display a certain colour for different build statuses
+
+### [Step 5](src/BuildMonitorStep5.cpp)
+
+* Display a progress spinner for the "building" status
