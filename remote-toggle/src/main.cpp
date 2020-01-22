@@ -71,7 +71,7 @@ static void reconnect()
     if (client.connect(local_hostname))
     {
       Serial.printf("connected to broker %s\n", local_hostname);
-      client.subscribe("/remote_switch/in");
+      client.subscribe("/remote_toggle/in");
       client.setCallback(callback);
     }
     else
@@ -106,7 +106,7 @@ void loop()
 
   if (press == HIGH)
   {
-    client.publish("/remote_switch/out", "1");
+    client.publish("/remote_toggle/out", "1");
     delay(500);
   }
   delay(100);

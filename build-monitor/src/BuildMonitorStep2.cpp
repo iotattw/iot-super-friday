@@ -1,7 +1,7 @@
 #include "BuildMonitorStep2.h"
 
 #define NEOPIXEL_PIN 13
-#define NEOPIXEL_LENGTH 8
+#define NEOPIXEL_LENGTH 12
 
 BuildMonitorStep2::BuildMonitorStep2() : pixels(NEOPIXEL_LENGTH, NEOPIXEL_PIN, NEO_GRB + NEO_KHZ800)
 {
