@@ -1,4 +1,4 @@
-# Motion Sensor
+# Remote toggle
 
 This project uses an ESP8266 module (soon an ESP32) connected to a LED light and button to act as a remote trigger.
 
