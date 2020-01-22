@@ -40,3 +40,4 @@ Once you have the ESP32 module drivers installed and PlatformIO set up and ready
 * [Build Monitor](build-monitor/)
 * [Glowing Eyes](glowing-eyes/)
 * [Glowing Eyes Connected](glowing-eyes-connected/)
+* [Remote toggle](remote-toggle/)
